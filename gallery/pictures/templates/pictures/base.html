@@ -2,21 +2,28 @@
 {% load static %}
 <html>
     <head>
-        <title>Django - pictures Gallery</title>
-        <!-- CSS -->
+        <title>Django - Pictures Gallery</title>
         <link rel="stylesheet" href="{% static 'pictures/css/style.css' %}">
-        <link rel="stylesheet" href="{% static 'pictures/css/simplelightbox.min.css' %}">
-
-        <!-- JAVASCRIPT -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script type="text/javascript" src="{% static 'pictures/js/simple-lightbox.min.js' %}"></script>
     </head>
     <body>
+        <div class="vertical-menu">
+            <form action="/pictures" method="GET" class="active">
+                <input type="submit" value="Home"> 
+            </form>
+            <form action="/pictures/album" method="GET" class="active">
+                <input type="submit" value="Album"> 
+            </form>
+            <form action="/pictures/upload" method="GET" class="active">
+                    <input type="submit" value="Upload"> 
+            </form>
+            <form action="/pictures/add-album" method="GET" class="active">
+                <input type="submit" value="Create Album"> 
+            </form>
+        </div> 
 	    <div class='container'>
 		    <div class="gallery">
                 {% block body %}{% endblock body %}
 		    </div>
 		</div>
-        {% block extra_js %}{% endblock extra_js %}
     </body>
 </html>

@@ -1,0 +1,21 @@
+{% extends 'pictures/base.html' %}
+
+{% load photo_tags %}
+
+{% block body %}
+	{% if images %}
+		{% for image in images %}
+			{% with image|split:'.' as strs %}
+				{% with strs|length as str_arr_len %}
+					{% with str_arr_len|add:'-1' as ext_idx %}
+						<a href="{{ MEDIA_URL }}../../media/{{ image }}">
+							<img src="{{ MEDIA_URL }}../../media/{{ image }}" alt="{{ image }}">
+						</a>
+					{% endwith %}
+				{% endwith %}
+			{% endwith %}
+		{% endfor %}
+	{% else %}
+		<p>No image available.</p>
+	{% endif %}
+{% endblock body %}

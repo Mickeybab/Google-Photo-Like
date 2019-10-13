@@ -1,0 +1,20 @@
+{% extends 'pictures/base.html' %}
+
+{% load static %}
+
+{% block body %}
+    <h2>Upload Picture</h2>
+    <form method="post" enctype="multipart/form-data" id="form">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <button type="submit">Upload</button>
+    </form>
+    <select name="album" form="form">
+        {% if albums %}
+            {% for name in albums %}
+            <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+        {% endif %}
+    </select>
+
+{% endblock body %}

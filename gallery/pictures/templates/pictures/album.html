@@ -1,0 +1,16 @@
+{% extends 'pictures/base.html' %}
+
+{% load static %}
+
+{% block body %}
+    {% if albums %}
+        {% for album in albums %}
+            <div>
+                {{ album.title }}
+                <a href="/pictures/album/{{ album.id }}">
+                    <img src="{{ MEDIA_URL }}{{ album.cover }}" alt="{{ album.cover }}">
+                </a>
+            </div><br>
+        {% endfor %}
+    {% endif %}
+{% endblock body %}

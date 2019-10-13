@@ -1,0 +1,14 @@
+{% extends 'pictures/base.html' %}
+
+{% load static %}
+
+{% block body %}
+    <h2>Create Album</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        Title: <input type="text" name="title">
+        Description: <input type="text" name="description">
+        Cover: <input type="file" name="cover">
+        <button type="submit">Create</button>
+    </form>
+{% endblock body %}
