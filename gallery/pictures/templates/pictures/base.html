@@ -2,24 +2,27 @@
 {% load static %}
 <html>
     <head>
-        <title>Django - Pictures Gallery</title>
+        <title>Django - Google photo like</title>
         <link rel="stylesheet" href="{% static 'pictures/css/style.css' %}">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="vertical-menu">
-            <form action="/pictures" method="GET" class="active">
-                <input type="submit" value="Home"> 
-            </form>
-            <form action="/pictures/album" method="GET" class="active">
-                <input type="submit" value="Album"> 
-            </form>
-            <form action="/pictures/upload" method="GET" class="active">
-                    <input type="submit" value="Upload"> 
-            </form>
-            <form action="/pictures/add-album" method="GET" class="active">
-                <input type="submit" value="Create Album"> 
-            </form>
-        </div> 
+        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+            <div class="w3-container">
+                <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+                    <i class="fa fa-remove"></i>
+                </a>
+                <h4><b>Django - Google photo like</b></h4>
+            </div>
+            <div class="w3-bar-block">
+                <a href="/pictures" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">HOME</a>
+                <a href="/pictures/album" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">ALBUM</a> 
+                <a href="/pictures/upload" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">UPLOAD</a> 
+                <a href="/pictures/add-album" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">CREATE ALBUM</a>
+            </div>
+        </nav>
 	    <div class='container'>
 		    <div class="gallery">
                 {% block body %}{% endblock body %}

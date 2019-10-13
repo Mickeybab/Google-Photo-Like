@@ -3,7 +3,12 @@
 {% load photo_tags %}
 
 {% block body %}
-	{% if images %}
+    <div class="align-center">
+        <h2>{{ name }}</h2>
+        <br>
+        <br>
+    </div>
+    {% if images %}
 		{% for image in images %}
 			{% with image|split:'.' as strs %}
 				{% with strs|length as str_arr_len %}

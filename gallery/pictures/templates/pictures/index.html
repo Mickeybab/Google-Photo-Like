@@ -3,6 +3,7 @@
 {% load photo_tags %}
 
 {% block body %}
+	<h2>All Pictures</h2>
 	{% if images %}
 		{% for image in images %}
 			{% with image|split:'.' as strs %}

@@ -3,14 +3,19 @@
 {% load static %}
 
 {% block body %}
+    <h2>All Albums</h2>
     {% if albums %}
         {% for album in albums %}
-            <div>
-                {{ album.title }}
-                <a href="/pictures/album/{{ album.id }}">
+            <div class="album">
+                <div class="title">
+                    {{ album.title }}
+                </div>
+                <a href="/pictures/album/{{ album.id }}" class="album-cover">
                     <img src="{{ MEDIA_URL }}{{ album.cover }}" alt="{{ album.cover }}">
                 </a>
-            </div><br>
+            </div>
         {% endfor %}
+    {% else %}
+        <p>No album available.</p>
     {% endif %}
 {% endblock body %}

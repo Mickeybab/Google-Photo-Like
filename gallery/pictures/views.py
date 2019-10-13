@@ -59,10 +59,9 @@ def see_album(request, id=0):
     name = ''
     result = []
     for album in albums:
-        print(album.id)
         if album.id == id:
             name = album.title
     for img in os.listdir(os.path.join(settings.MEDIA_ROOT, name)):
         result.append(os.path.join(name, img))
-    context = {'images': result}
+    context = {'images': result, 'name': name}
     return render(request, "pictures/see_album.html", context)
